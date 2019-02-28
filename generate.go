@@ -27,7 +27,7 @@ type MoveGen struct {
 // converting string notations or determining a stalemate.
 var moveList [MaxPly+1]MoveGen
 
-// Returns "new" move generator for the given ply. Since move generator array
+// NewGen returns "new" move generator for the given ply. Since move generator array
 // has been pre-allocated already we simply return a pointer to the existing
 // array element re-initializing all its data.
 func NewGen(p *Position, ply int) (gen *MoveGen) {
@@ -46,7 +46,7 @@ func NewMoveGen(p *Position) *MoveGen {
 	return NewGen(p, ply())
 }
 
-// Returns new move generator for the initial step of iterative deepening
+// NewRootGen returns new move generator for the initial step of iterative deepening
 // (depth == 1) and existing one for subsequent iterations (depth > 1).
 func NewRootGen(p *Position, depth int) *MoveGen {
 	if depth == 1 {

@@ -143,7 +143,7 @@ func NewInitialPosition(game *Game) *Position {
 	return NewPositionFromFEN(game, `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`)
 }
 
-// Decodes FEN string and creates new position.
+// NewPositionFromFEN decodes FEN string and creates new position.
 func NewPositionFromFEN(game *Game, fen string) *Position {
 	tree[node] = Position{}
 	p := &tree[node]

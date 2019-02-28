@@ -68,7 +68,7 @@ func NewPromotion(p *Position, square, target int) (Move, Move, Move, Move) {
 	       NewMove(p, square, target).promote(Knight)
 }
 
-// Decodes a string in coordinate notation and returns a move. The string is
+// NewMoveFromNotation decodes a string in coordinate notation and returns a move. The string is
 // expected to be either 4 or 5 characters long (with promotion).
 func NewMoveFromNotation(p *Position, e2e4 string) Move {
 	from := square(int(e2e4[1] - '1'), int(e2e4[0] - 'a'))
@@ -101,7 +101,7 @@ func NewMoveFromNotation(p *Position, e2e4 string) Move {
 	return NewMove(p, from, to)
 }
 
-// Decodes a string in long algebraic notation and returns a move. All invalid
+// NewMoveFromString decodes a string in long algebraic notation and returns a move. All invalid
 // moves are discarded and returned as Move(0).
 func NewMoveFromString(p *Position, e2e4 string) (move Move, validMoves []Move) {
 	re := regexp.MustCompile(`([KkQqRrBbNn]?)([a-h])([1-8])[-x]?([a-h])([1-8])([QqRrBbNn]?)\+?[!\?]{0,2}`)
